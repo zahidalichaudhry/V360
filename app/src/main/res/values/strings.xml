@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">V360</string>
+    <string name="title_activity_options_menu">OptionsMenu</string>
+    <string name="Model_shoot_details">Enter details</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Introduction">We at V360 would like to position ourselves as your ONE STOP SHOP.\n\n
+        V360 is the Pakistan’s leading Modeling Agency. Having an elite reputation for providing top-class international models, hostesses and promotional staff which is second to none.\n\n
+
+We provide high-quality services including model training, events management and exclusive productions to all forms of agencies and companies, including all forms of marketing communications. V360 has transformed the professional promotional industry across the Pakistan. From its global corporate headquarters in Lahore, Pakistan.\n
+\n
+Our Services:\n\n
+
+• Model Management
+         • Print Production
+         • Promoters / Hostesses\n
+• Video / Still Production
+         • Exhibition Staff \n
+        • a High End Wedding/Event Planner
+        \n
+• eCommerce Management
+        • eCommerce Outsourcing
+        \n
+• Social Media Marketing
+        • Fashion Shows
+        • Studio Rentals\n
+• Location Permits • Digital Marketing\n • Set Decoration • Stylist\n
+• Portfolio Services • Pre-production• Crewing and Casting\n • Post-production\n
+
+INBOX IF YOU NEED ANY OF OUR SERVICES !!</string>
+
+
+    <string-array name="gender_array">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="selection">
+        <item>Select Category</item>
+        <item>User</item>
+        <item>Model</item>
+        <item>Photographer</item>
+        <item>Designer</item>
+        <item>MakeUp Artist</item>
+    </string-array>
+
+    <string name="portfolio">Where you want your \n \ \ \ \ \ \ \ \ \ Portfolio?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="title_activity_full_screen__model">FullScreen_Model</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>

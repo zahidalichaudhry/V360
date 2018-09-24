@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:background="#fff"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/ivGallery"
+            android:layout_width="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/inset_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/ivGallery"
+            android:layout_below="@+id/ivGallery"
+            android:gravity="center"
+            android:text="Chose\nPictures"
+            android:textColor="@color/default_green"
+            android:id="@+id/textView" />
+
+        <Button
+            android:id="@+id/ivUpload"
+            android:layout_marginTop="5dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/download"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textView3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Upload\n Pictures"
+            android:gravity="center"
+            android:textColor="@color/default_green"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/ivUpload"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ivGallery"
+        android:paddingBottom="20dp">
+
+
+        <LinearLayout
+            android:id="@+id/linearMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

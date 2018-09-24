@@ -1,0 +1,91 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    tools:context="com.itpvt.v360.Activities.Tour.TourEvents">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="50dp"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:background="@drawable/blackborder"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/e_model"
+                    android:layout_width="160dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/modelshoot2"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:background="@drawable/blackborder"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/e_marriage"
+                    android:layout_width="160dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/wedding"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:background="@drawable/blackborder"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/e_party"
+                    android:layout_width="160dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/coporate_party"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:background="@drawable/blackborder"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/e_exibition"
+                    android:layout_width="160dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/exhibition"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

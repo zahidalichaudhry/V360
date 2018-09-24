@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_container"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="@drawable/nav_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_alignParentTop="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/profile_width"
+            android:layout_marginTop="1dp"
+            android:layout_height="@dimen/profile_height"
+            android:scaleType="centerCrop"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:id="@+id/image_profile"
+            />
+
+        <TextView
+            android:id="@+id/navname"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_marginTop="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/navemail"
+            android:textColor="#000"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

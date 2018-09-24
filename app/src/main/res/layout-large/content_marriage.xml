@@ -1,0 +1,163 @@
+
+<ScrollView
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/wedding_back_copy"
+    android:layout_marginTop="?attr/actionBarSize">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ransblack"
+     >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/bg_reg_la"
+            android:layout_marginBottom="50dp"
+            android:paddingBottom="30dp"
+            android:id="@+id/model_linear"
+            android:layout_centerHorizontal="true">
+
+
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="start"
+
+                android:text="@string/Model_shoot_details"
+                android:paddingLeft="10dp"
+                android:paddingTop="6dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/LightGrey"
+                android:textSize="35dp"
+
+                />
+
+            <!--<ImageView-->
+            <!--android:layout_width="105dp"-->
+            <!--android:layout_height="105dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="@drawable/v_logo"/>-->
+
+            <Button
+                android:id="@+id/fromDate"
+                android:background="@drawable/modelshootedittext_back"
+                android:textColor="@color/LightGrey"
+                android:drawableRight="@drawable/calender"
+                android:padding="20dp"
+                android:text="From"
+                android:textSize="24sp"
+
+
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="start"
+                android:textAlignment="viewStart"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/toDate"
+                android:background="@drawable/modelshootedittext_back"
+                android:textColor="@color/LightGrey"
+                android:drawableRight="@drawable/calender"
+                android:padding="20dp"
+                android:text="To"
+                android:textSize="24sp"
+
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="start"
+                android:textAlignment="viewStart"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/city"
+                android:background="@drawable/modelshootedittext_back"
+                android:textColor="@color/LightGrey"
+                android:textColorHint="@color/LightGrey"
+                android:hint="Enter City"
+                android:imeOptions="actionNext"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:singleLine="true"
+
+                android:layout_width="match_parent"
+                android:layout_gravity="start"
+                android:textSize="24sp"
+                android:gravity="start"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="textStart"
+
+
+                />
+
+            <EditText
+                android:id="@+id/description"
+                android:background="@drawable/modelshootedittext_back"
+                android:textColor="@color/LightGrey"
+                android:textColorHint="@color/LightGrey"
+                android:hint="Description"
+
+                android:layout_width="match_parent"
+                android:layout_gravity="start"
+                android:textSize="24sp"
+                android:gravity="start"
+                android:layout_height="150dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="textStart"
+
+                />
+
+            <Button
+                android:id="@+id/submit"
+                android:background="@drawable/modelshootedittext_back"
+                android:textColor="@color/LightGrey"
+                android:gravity="center"
+                android:text="Submit"
+                android:layout_marginBottom="10dp"
+                android:textSize="24sp"
+                android:padding="20dp"
+
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="start"
+                android:layout_marginRight="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+                />
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="100dp"></LinearLayout>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+</ScrollView>

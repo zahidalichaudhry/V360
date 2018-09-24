@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:id="@+id/grp1">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/user"
+            android:title="User Profile" />
+        <item
+            android:id="@+id/nav_chngepass"
+            android:icon="@drawable/nav_lock"
+            android:title="Change Password" />
+        <item
+            android:id="@+id/nav_inivite"
+            android:icon="@drawable/invite"
+            android:title="Invite Friends" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/contact"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/about"
+            android:title="About Us" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Logout"/>
+    </group>
+
+</menu>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="image_ids">
+
+        <item>@drawable/portrait</item>
+        <item>@drawable/scenery</item>
+        <item>@drawable/bridal</item>
+        <item>@drawable/san</item>
+        <item>@drawable/camera</item>
+
+    </string-array>
+</resources>

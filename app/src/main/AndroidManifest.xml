@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.itpvt.v360">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/main_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/main_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Activities.Home"
+            android:theme="@style/MyMaterialTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Dashboard"
+            android:theme="@style/AppFullScreenTheme"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Splash"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            ////////////////////
+        </activity>
+        <activity
+            android:name=".Activities.ForgotPassword"
+            android:theme="@style/MyMaterialTheme"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".Activities.Profile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ContactUs"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.AboutUs"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Reg_marriage"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Reg_party"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Reg_modelshoot"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activities.Home_profile_model"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Home_profile_photographers"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.ComposeEmail"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.UploadPortfolioModel"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Tour.TourDashboard"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.UploadPortfolioPhotog"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ViewPortfolio"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ViewPortPhotog"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.ChoosePanel"
+            android:theme="@style/AppFullScreenTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity android:name=".Activities.All_models"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.All_photogs" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.InviteFriends" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.FullScreenImages"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Full_Model_screen"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Full_Photog_Screen"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.UserSignupAct" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Model_Signup_act"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Photog_signup_act"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.designer_signup"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Upload_Designer_port" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.All_Designers" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Home_profile_Design"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.ViewPortfolio_design" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Full_Screen_Designer"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Art_Signup" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.UploadPortfolioArt" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.All_Art" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Home_Profile_Art"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.View_Port_Art" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Full_Art_Screen" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Reg_Exib" android:screenOrientation="portrait"></activity>
+        ///////
+        <activity android:name=".Activities.Model_Shoot_Gallery"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Full_Modle_Gallery"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.wedding_shoot_gallery" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Full_wedding_gallery" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Party_gallery"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Full_party_gallery" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.Exibition_gallery"  android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.Submitted"  android:screenOrientation="portrait"></activity>
+        <service android:name=".MyfirebaseIdservics">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT">
+
+                </action>
+            </intent-filter>
+        </service>
+        <service android:name=".FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT">
+
+                </action>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

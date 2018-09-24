@@ -1,0 +1,82 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--Style for no action bar and full screen-->
+    <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#000</item>
+
+    </style>
+
+
+    <!--Style for splash screen-->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--material theme-->
+    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+
+    </style>
+
+    <style name="MyMaterialTheme.Base" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#000</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="MyMaterialTheme">
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:textColorSecondary">@color/textactive</item>
+    </style>
+
+    <!--Tab layout text style-->styles.xml
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="dark" parent="Theme.AppCompat.NoActionBar"></style>
+
+    <style name="FullscreenTheme" parent="MyMaterialTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+
+</resources>
