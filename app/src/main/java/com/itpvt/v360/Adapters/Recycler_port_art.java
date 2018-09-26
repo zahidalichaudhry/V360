@@ -17,9 +17,6 @@ import com.itpvt.v360.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Itpvt on 21-Nov-17.
- */
 
 public class Recycler_port_art extends RecyclerView.Adapter<RecyclerPort.MyViewHolder> {
     String userId;
@@ -66,11 +63,13 @@ public class Recycler_port_art extends RecyclerView.Adapter<RecyclerPort.MyViewH
         return arrayList.size();
     }
     public static class MyViewHolder extends  RecyclerView.ViewHolder
+
     {
         ImageView Thumbnail;
         public MyViewHolder(View itemView) {
             super(itemView);
             Thumbnail=(ImageView) itemView.findViewById(R.id.thubnail);
+
         }
     }
 }

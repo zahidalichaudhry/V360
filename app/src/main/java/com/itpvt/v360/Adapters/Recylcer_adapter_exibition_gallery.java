@@ -24,7 +24,7 @@ public class Recylcer_adapter_exibition_gallery extends RecyclerView.Adapter<Rec
     ArrayList<Album> arrayList = new ArrayList<>();
     Activity activity;
     boolean isImageFitToScreen;
-
+// for gallery image
     public Recylcer_adapter_exibition_gallery(ArrayList<Album> arrayList, Context context) {
         this.arrayList = arrayList;//list of name and urls from jason array
         activity = (Activity) context;

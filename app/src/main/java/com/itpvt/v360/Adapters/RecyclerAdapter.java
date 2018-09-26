@@ -22,6 +22,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     ArrayList<Album> arrayList = new ArrayList<>();
     Activity activity;
     boolean isImageFitToScreen;
+    // for ful screen image
 
     public RecyclerAdapter(ArrayList<Album> arrayList, Context context) {
         this.arrayList = arrayList;//list of name and urls from jason array

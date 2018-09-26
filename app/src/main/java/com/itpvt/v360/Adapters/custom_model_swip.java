@@ -14,6 +14,8 @@ import com.itpvt.v360.R;
 
 import java.util.ArrayList;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 /**
  * Created by Itpvt on 13-Nov-17.
  */
@@ -45,7 +47,11 @@ public class custom_model_swip extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View item_view= layoutInflater.inflate(R.layout.swip_images,container,false );
         ImageView imageView=(ImageView)  item_view.findViewById(R.id.image);
+        PhotoViewAttacher photoAttacher;
+        photoAttacher= new PhotoViewAttacher(imageView);
+        photoAttacher.update();
         String image = arrayList.get(position).getUrl();
+
         Glide.with(ctx).load(image).into(imageView);
         container.addView(item_view);
         return item_view;

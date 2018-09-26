@@ -144,6 +144,7 @@ public class Home_profile_Design extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 //        username.setText("Name:\t"+name+"\nAddress:\t" +email+ "\nMobile:\t"+ mobile);
         name.setText(sname);
         username.setText(susername);

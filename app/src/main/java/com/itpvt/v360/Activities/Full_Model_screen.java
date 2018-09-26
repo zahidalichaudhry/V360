@@ -56,6 +56,8 @@ public class Full_Model_screen extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
+
+                        //adapter name
                         adapter=new custom_model_swip(Full_Model_screen.this,arrayList);//now we send the name urls to adapter
                         viewPager.setAdapter(adapter);//we set that adapter to the recycerView
                         loading.dismiss();

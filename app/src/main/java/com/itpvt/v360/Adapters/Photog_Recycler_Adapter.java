@@ -51,6 +51,7 @@ public class Photog_Recycler_Adapter extends RecyclerView.Adapter<Photog_Recycle
                 activity.startActivity(intent);
             }
         });
+
     }
 
     @Override

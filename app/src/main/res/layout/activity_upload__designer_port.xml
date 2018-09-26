@@ -28,7 +28,7 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
-    content_upload_photo
+
     <include layout="@layout/content_upload_photo"/>
 
 </android.support.constraint.ConstraintLayout>

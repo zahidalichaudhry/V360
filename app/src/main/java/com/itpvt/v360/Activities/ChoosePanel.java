@@ -10,6 +10,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.itpvt.v360.Activities.Tour.TourDashboard;
 import com.itpvt.v360.R;
 
@@ -17,6 +23,9 @@ import com.itpvt.v360.R;
 public class ChoosePanel extends AppCompatActivity {
 
     Button register,tour;
+    LoginButton log;
+    CallbackManager call;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +37,8 @@ public class ChoosePanel extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_choose_panel);
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        call= CallbackManager.Factory.create();
         register=(Button)findViewById(R.id.register);
         tour=(Button)findViewById(R.id.tour);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,5 +59,32 @@ public class ChoosePanel extends AppCompatActivity {
             }
         });
 
+        log.registerCallback(call, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+               Intent i = new Intent(ChoosePanel.this, Home.class);
+               startActivity(i);
+
+            }
+
+            @Override
+            public void onCancel() {
+//                txt.setText("Login Failed");
+           }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
+
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        call.onActivityResult(requestCode,resultCode,data);
+    }
+
 }
+

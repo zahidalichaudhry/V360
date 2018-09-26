@@ -281,6 +281,7 @@ public class UserSignupAct extends AppCompatActivity {
 
         return Base64.encodeToString(imgBytes, Base64.DEFAULT);
     }
+
     private void registerUser() {
         final String user_nicename = u_name.getText().toString().trim();
         final String user_username = u_username.getText().toString().trim();
@@ -303,6 +304,7 @@ public class UserSignupAct extends AppCompatActivity {
                     super.onPreExecute();
                     loading = ProgressDialog.show(UserSignupAct.this, "User Creating...", "Please Wait...", false, false);
                 }
+
                 @Override
                 protected void onPostExecute(String s) {
                     super.onPostExecute(s);
@@ -316,6 +318,7 @@ public class UserSignupAct extends AppCompatActivity {
                         Toast.makeText(UserSignupAct.this.getApplicationContext(), "Sign in error! Check your network connection", Toast.LENGTH_LONG).show();
                     }
                 }
+
                 @Override
                 protected String doInBackground(Void... params) {
                     HashMap<String, String> hashMap = new HashMap<>();

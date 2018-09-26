@@ -39,6 +39,7 @@ public class RecyclerPort extends RecyclerView.Adapter<RecyclerPort.MyViewHolder
         String path=arrayList.get(position).getUrl();
         Glide.with(activity).load(path).into(holder.Thumbnail);
 
+
         holder.Thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +55,7 @@ public class RecyclerPort extends RecyclerView.Adapter<RecyclerPort.MyViewHolder
                 Intent intent =new Intent(activity,Full_Model_screen.class);
                   intent.putExtra("portUsername",userId);
                 activity.startActivity(intent);
+
             }
         });
     }

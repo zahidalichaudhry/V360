@@ -328,7 +328,7 @@ public class Art_Signup extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(Art_Signup.this.getApplicationContext(), "Sign in error! Check your network connection", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Art_Signup.this.getApplicationContext(), "Sign up error! Check your network connection", Toast.LENGTH_LONG).show();
                     }
                 }
                 @Override

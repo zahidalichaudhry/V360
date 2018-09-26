@@ -27,6 +27,7 @@ public class GridViewAdapter extends ArrayAdapter<ImageItem> {
         this.context = context;
         this.data = data;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
