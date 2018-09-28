@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Art_Signup extends AppCompatActivity {
+
     EditText m_name, m_username, m_email, m_phone, m_age, m_gender, m_recent, m_address, m_password,m_confirmpass;
     Button m_signup;
     String model_gender;
@@ -293,7 +294,7 @@ public class Art_Signup extends AppCompatActivity {
 
         return Base64.encodeToString(imgBytes, Base64.DEFAULT);
     }
-
+// for register it
     private void registerModel() {
         final String model_nicename = m_name.getText().toString().trim();
         final String model_username = m_username.getText().toString().trim();

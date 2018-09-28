@@ -1,6 +1,8 @@
 package com.itpvt.v360.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.service.carrier.CarrierMessagingService;
 import android.support.annotation.NonNull;
@@ -31,6 +33,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.itpvt.v360.Activities.Tour.TourDashboard;
+import com.itpvt.v360.Config;
 import com.itpvt.v360.R;
 
 import org.json.JSONException;
@@ -45,7 +48,7 @@ public class ChoosePanel extends AppCompatActivity implements View.OnClickListen
     Button register,tour;
    // LoginButton log;
   //  CallbackManager call;
-
+   String user_email,user_nicename;
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int RC_SIGN_IN = 420;
 
@@ -100,12 +103,10 @@ public class ChoosePanel extends AppCompatActivity implements View.OnClickListen
         loginButton.registerCallback(callbackManager, new FacebookCallback< LoginResult >() {@Override
         public void onSuccess(LoginResult loginResult) {
 
-            System.out.println("onSuccess");
+
 Intent i = new Intent(ChoosePanel.this, Home.class);
 startActivity(i);
-            String accessToken = loginResult.getAccessToken()
-                    .getToken();
-            Log.i("accessToken", accessToken);
+
 
             GraphRequest request = GraphRequest.newMeRequest(
                     loginResult.getAccessToken(),
@@ -113,29 +114,61 @@ startActivity(i);
                     {@Override
                     public void onCompleted(JSONObject object,
                                             GraphResponse response) {
-
-                        Log.i("LoginActivity",
-                                response.toString());
+                        JSONObject json = response.getJSONObject();
                         try {
-                            id = object.getString("id");
-                            try {
-                                URL profile_pic = new URL(
-                                        "http://graph.facebook.com/" + id + "/picture?type=large");
-                                Log.i("profile_pic",
-                                        profile_pic + "");
+                            if(json != null){
+                                user_nicename = json.getString("name");
+                                user_email = json.getString("email");
+//                        details_txt.setText(user_nicename + user_email);
 
-                            } catch (MalformedURLException e) {
-                                e.printStackTrace();
+                                SharedPreferences sharedPreferences =new ChoosePanel().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+                                //Creating editor to store values to shared preferences
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                                //Adding values to editor
+                                editor.putString(Config.EMAIL_SHARED_PREF, user_email);
+                                editor.putString(Config.SHARED_PREF_GOOGLE_NAME,user_nicename);
+
+                                //Saving values to editor
+                                editor.commit();
                             }
-                            Log.e("UserDate", String.valueOf(object));
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                     });
 
+
+
+
+
+
+
+
+//                        Log.i("LoginActivity",
+//                                response.toString());
+//                        try {
+//                            id = object.getString("id");
+//                            try {
+//                                URL profile_pic = new URL(
+//                                        "http://graph.facebook.com/" + id + "/picture?type=large");
+//                                Log.i("profile_pic",
+//                                        profile_pic + "");
+//
+//                            } catch (MalformedURLException e) {
+//                                e.printStackTrace();
+//                            }
+//                            Log.e("UserDate", String.valueOf(object));
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                    });
+
             Bundle parameters = new Bundle();
-          //  parameters.putString("fields","id,name,email,gender, birthday");
+            parameters.putString("fields","name,email");
             request.setParameters(parameters);
             request.executeAsync();
         }
@@ -174,15 +207,6 @@ startActivity(i);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-//    private void signOut() {
-//        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-//                new ResultCallback<Status>() {
-//                    @Override
-//                    public void onResult(Status status) {
-//                        updateUI(false);
-//                    }
-//                });
-//    }
 
 
     private void handleGPlusSignInResult(GoogleSignInResult result) {
@@ -193,11 +217,11 @@ startActivity(i);
             Intent i = new Intent(ChoosePanel.this, Home.class);
             startActivity(i);
 //            //Fetch values
-//            String personName = acct.getDisplayName();
-//            String personPhotoUrl = acct.getPhotoUrl().toString();
-//            String email = acct.getEmail();
+            String m_name = acct.getDisplayName();
+            String email = acct.getEmail();
+
 //            String familyName = acct.getFamilyName();
-//            Log.e(TAG, "Name: " + personName +", email: " + email + ", Image: " + personPhotoUrl +", Family Name: " + familyName);
+            Log.e(TAG, "Name: " + m_name +", email: " + email);
             updateUI(true);
         } else {
             updateUI(false);

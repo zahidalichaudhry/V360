@@ -38,6 +38,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
@@ -63,6 +64,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.Attributes;
 
 public class Signin extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -73,10 +75,10 @@ public class Signin extends Fragment implements GoogleApiClient.OnConnectionFail
     String category;
     Button signin;
     private EditText editTextEmail;
-////    LoginButton btn_facebook;
-//    private SignInButton google_signin;
+    LoginButton btn_facebook;
+    private SignInButton google_signin;
     private  static final int REQ_CODE= 9001;
-//    private GoogleApiClient googleApiClient;
+    private GoogleApiClient googleApiClient;
     CallbackManager callbackManager;
     String user_email,user_nicename;
     private EditText editTextPassword;
@@ -93,11 +95,11 @@ public class Signin extends Fragment implements GoogleApiClient.OnConnectionFail
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        FacebookSdk.sdkInitialize(getActivity());
+        FacebookSdk.sdkInitialize(getActivity());
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_signin, container, false);
-//        google_signin=(SignInButton)view.findViewById(R.id.google_signIn);
-//        callbackManager = CallbackManager.Factory.create();
+        google_signin=(SignInButton)view.findViewById(R.id.btn_sign_in);
+       callbackManager = CallbackManager.Factory.create();
 
         signin = (Button) view.findViewById(R.id.btn_Login);
         editTextEmail = (EditText) view.findViewById(R.id.email);
@@ -175,65 +177,57 @@ public class Signin extends Fragment implements GoogleApiClient.OnConnectionFail
 
 
 
-//                Intent intent=new Intent(getActivity().getApplicationContext(), SignUp.class);
-//                startActivity(intent);
+   //             Intent intent=new Intent(getActivity().getApplicationContext(), SignUp.class);
+   //             startActivity(intent);
             }
         });
 
-//        btn_facebook = (LoginButton) view.findViewById(R.id.login_facebook);
-//        btn_facebook.setReadPermissions("public_profile email");
-//        if(AccessToken.getCurrentAccessToken()!=null)
-//        {
-//            Intent intent = new Intent(getActivity(),Dashboard.class);
-//            startActivity(intent);
-//        }
-//        else
-//        {
-//            Log.i(DEBUG_TAG, "Not logged in to facebook.");
-//        }
+        btn_facebook = (LoginButton) view.findViewById(R.id.fb);
+        btn_facebook.setReadPermissions("public_profile email");
+        if(AccessToken.getCurrentAccessToken()!=null)
+        {
+           Intent intent = new Intent(getActivity(),Dashboard.class);
+           startActivity(intent);
+        }
+       else
+       {
+      //      Log.i(DEBUG_TAG, "Not logged in to facebook.");
+        }
 //
-//        btn_facebook.setFragment(this);
+     //   btn_facebook.setFragment(this);
 //
-//        btn_facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                if(AccessToken.getCurrentAccessToken()!=null)
-//                {
-//                    RequestData();
-//                    final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    LayoutInflater inflater = getActivity().getLayoutInflater();
-//                    final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-//                    builder.setView(dialogView);
+    //    btn_facebook.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+         //   @Override
+         //  public void onSuccess(LoginResult loginResult) {
+            //   if(AccessToken.getCurrentAccessToken()!=null)
+           //    {
+           //        RequestData();
+          //          final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+          //          LayoutInflater inflater = getActivity().getLayoutInflater();
+          //          final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+         //          builder.setView(dialogView);
 //
 //
-//                    final EditText ID = (EditText) dialogView.findViewById(R.id.edit1);
-////                final EditText Name = (EditText) dialogView.findViewById(R.id.edit2);
-//
-//                    builder.setTitle("Phone Number");
-//                    builder.setMessage("Please Enter your phone Number");
-//                    builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            if(ID.getText().length()==0)
-//                            {
-//                                ID.requestFocus();
-//                                ID.setError(Html.fromHtml("<font color='red'>Please Enter Phone Number</font>"));
-//                                Toast.makeText(getContext(),"Please Enter Phone Number", Toast.LENGTH_SHORT).show();
-////                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-//
-//                            }
-//                            else
-//                            {
-////                        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-//                                UniqueID = ID.getText().toString();
-//                                category="User";
-////                        Username = Name.getText().toString();
-////                        arrayList.add(Username);
+            //       final EditText ID = (EditText) dialogView.findViewById(R.id.edit1);
+//                final EditText Name = (EditText) dialogView.findViewById(R.id.edit2);
+///
+          //          builder.setTitle("Phone Number");
+          //          builder.setMessage("Please Enter your phone Number");
+         //          builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+        //               @Override
+       //                public void onClick(DialogInterface dialogInterface, int i) {
+      //                      else
+                            {
+             //          dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+                     //           UniqueID = ID.getText().toString();
+                      //         category="User";
+             //           Username = Attributes.Name.getText().toString();
+              //         arrayList.add(Username);
 //                                SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 //
 //                                //Creating editor to store values to shared preferences
-//                                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                                editor.putString(Config.PHONE_SHARED_PREF,UniqueID);
+                            //    SharedPreferences.Editor editor = sharedPreferences.edit();
+                             //  editor.putString(Config.PHONE_SHARED_PREF,UniqueID);
 //                                editor.putString(Config.CATEGORY_SHARED_PREF,category);
 ////
 ////                                //Adding values to editor
@@ -284,10 +278,10 @@ public class Signin extends Fragment implements GoogleApiClient.OnConnectionFail
 //            Log.i(DEBUG_TAG, "Not logged in to facebook.");
 //        }
 
-//        Loginwithfb();
+        Loginwithfb();
 
-//        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-//        googleApiClient = new GoogleApiClient.Builder(getActivity()).enableAutoManage(getActivity(), this).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        googleApiClient = new GoogleApiClient.Builder(getActivity()).enableAutoManage(getActivity(), this).addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions).build();
 //
         // initializes the spinner
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
@@ -354,38 +348,38 @@ public class Signin extends Fragment implements GoogleApiClient.OnConnectionFail
         return view;
 
     }
-    @Override
-    public void onPause() {
-        super.onPause();
-//        googleApiClient.stopAutoManage(getActivity());
-//        googleApiClient.disconnect();
+//    @Override
+//    public void onPause(){
+//        super.onPause();
+////        googleApiClient.stopAutoManage(getActivity());
+////        googleApiClient.disconnect();
     }
-//    private void Loginwithfb()
-//    {
-//        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                if(AccessToken.getCurrentAccessToken()!=null)
-//                {
-//                    RequestData();
-//                }
+   private void Loginwithfb()
+    {
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+          public void onSuccess(LoginResult loginResult) {
+                if(AccessToken.getCurrentAccessToken()!=null)
+                {
+                    RequestData();
+                }
+
+               Intent intent = new Intent(getActivity(), Dashboard.class);
+                startActivity(intent);
+                Toast.makeText(getActivity(), "Sign in Success", Toast.LENGTH_LONG).show();
+            }
 //
-//                Intent intent = new Intent(getActivity(), Dashboard.class);
-//                startActivity(intent);
-//                Toast.makeText(getActivity(), "Sign in Success", Toast.LENGTH_LONG).show();
-//            }
+           @Override
+            public void onCancel() {
+                Toast.makeText(getActivity(), "Login Cancelled.", Toast.LENGTH_LONG).show();
+            }
 //
-//            @Override
-//            public void onCancel() {
-//                Toast.makeText(getActivity(), "Login Cancelled.", Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//                Toast.makeText(getActivity(), "Login Error." + error.getMessage(), Toast.LENGTH_LONG).show();
-//            }
-//        });
-//    }
+           @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(getActivity(), "Login Error." + error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+       });
+    }
 
     private void RequestData()
     {
