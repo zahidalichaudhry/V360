@@ -43,24 +43,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class ChoosePanel extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener{
+public class ChoosePanel extends AppCompatActivity implements View.OnClickListener{
 
     Button register,tour;
    // LoginButton log;
   //  CallbackManager call;
-   String user_email,user_nicename;
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int RC_SIGN_IN = 420;
+//   String user_email,user_nicename;
+//    private static final String TAG = MainActivity.class.getSimpleName();
+//    private static final int RC_SIGN_IN = 420;
 
-    private GoogleApiClient mGoogleApiClient;
+   // private GoogleApiClient mGoogleApiClient;
 
-    private SignInButton btnSignIn;
+   // private SignInButton btnSignIn;
 
-    public String id;
+ //   public String id;
 
-    public LoginButton loginButton;
-    public Button fb, google;
-    public CallbackManager callbackManager;
+//    public LoginButton loginButton;
+//    public Button fb, google;
+//    public CallbackManager callbackManager;
 
 
 
@@ -73,13 +73,13 @@ public class ChoosePanel extends AppCompatActivity implements View.OnClickListen
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_choose_panel);
-        fb = (Button) findViewById(R.id.fb);
-        google = (Button) findViewById(R.id.google);
-        loginButton = (LoginButton) findViewById(R.id.login_button);
+     //   fb = (Button) findViewById(R.id.fb);
+       // google = (Button) findViewById(R.id.google);
+        //loginButton = (LoginButton) findViewById(R.id.login_button);
 
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager= CallbackManager.Factory.create();
+        //FacebookSdk.sdkInitialize(getApplicationContext());
+        //callbackManager= CallbackManager.Factory.create();
         register=(Button)findViewById(R.id.register);
         tour=(Button)findViewById(R.id.tour);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -100,195 +100,195 @@ public class ChoosePanel extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback< LoginResult >() {@Override
-        public void onSuccess(LoginResult loginResult) {
-
-
-Intent i = new Intent(ChoosePanel.this, Home.class);
-startActivity(i);
-
-
-            GraphRequest request = GraphRequest.newMeRequest(
-                    loginResult.getAccessToken(),
-                    new GraphRequest.GraphJSONObjectCallback()
-                    {@Override
-                    public void onCompleted(JSONObject object,
-                                            GraphResponse response) {
-                        JSONObject json = response.getJSONObject();
-                        try {
-                            if(json != null){
-                                user_nicename = json.getString("name");
-                                user_email = json.getString("email");
-//                        details_txt.setText(user_nicename + user_email);
-
-                                SharedPreferences sharedPreferences =new ChoosePanel().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-
-                                //Creating editor to store values to shared preferences
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                                //Adding values to editor
-                                editor.putString(Config.EMAIL_SHARED_PREF, user_email);
-                                editor.putString(Config.SHARED_PREF_GOOGLE_NAME,user_nicename);
-
-                                //Saving values to editor
-                                editor.commit();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    });
-
-
-
-
-
-
-
-
-//                        Log.i("LoginActivity",
-//                                response.toString());
-//                        try {
-//                            id = object.getString("id");
-//                            try {
-//                                URL profile_pic = new URL(
-//                                        "http://graph.facebook.com/" + id + "/picture?type=large");
-//                                Log.i("profile_pic",
-//                                        profile_pic + "");
+//        loginButton.registerCallback(callbackManager, new FacebookCallback< LoginResult >() {@Override
+//        public void onSuccess(LoginResult loginResult) {
 //
-//                            } catch (MalformedURLException e) {
-//                                e.printStackTrace();
+//
+//Intent i = new Intent(ChoosePanel.this, Home.class);
+//startActivity(i);
+//
+//
+//            GraphRequest request = GraphRequest.newMeRequest(
+//                    loginResult.getAccessToken(),
+//                    new GraphRequest.GraphJSONObjectCallback()
+//                    {@Override
+//                    public void onCompleted(JSONObject object,
+//                                            GraphResponse response) {
+//                        JSONObject json = response.getJSONObject();
+//                        try {
+//                            if(json != null){
+//                                user_nicename = json.getString("name");
+//                                user_email = json.getString("email");
+////                        details_txt.setText(user_nicename + user_email);
+//
+//                                SharedPreferences sharedPreferences =new ChoosePanel().getSharedPreferences(Config.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+//
+//                                //Creating editor to store values to shared preferences
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//
+//                                //Adding values to editor
+//                                editor.putString(Config.EMAIL_SHARED_PREF, user_email);
+//                                editor.putString(Config.SHARED_PREF_GOOGLE_NAME,user_nicename);
+//
+//                                //Saving values to editor
+//                                editor.commit();
 //                            }
-//                            Log.e("UserDate", String.valueOf(object));
+//
 //                        } catch (JSONException e) {
 //                            e.printStackTrace();
 //                        }
 //                    }
 //                    });
-
-            Bundle parameters = new Bundle();
-            parameters.putString("fields","name,email");
-            request.setParameters(parameters);
-            request.executeAsync();
-        }
-            @Override
-            public void onCancel() {
-          //      System.out.println("onCancel");
-            }
-            @Override
-            public void onError(FacebookException exception) {
-                System.out.println("onError");
-                Log.v("LoginActivity", exception.getCause().toString());
-            }
-        });
-        initializeControls();
-        initializeGPlusSettings();
-    }
-
-    private void initializeControls(){
-        btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
-        btnSignIn.setOnClickListener(this);
-    }
-    private void initializeGPlusSettings(){
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-        btnSignIn.setSize(SignInButton.SIZE_STANDARD);
-        btnSignIn.setScopes(gso.getScopeArray());
-    }
-
-    private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-
-
-
-    private void handleGPlusSignInResult(GoogleSignInResult result) {
-        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
-            GoogleSignInAccount acct = result.getSignInAccount();
-
-            Intent i = new Intent(ChoosePanel.this, Home.class);
-            startActivity(i);
-//            //Fetch values
-            String m_name = acct.getDisplayName();
-            String email = acct.getEmail();
-
-//            String familyName = acct.getFamilyName();
-            Log.e(TAG, "Name: " + m_name +", email: " + email);
-            updateUI(true);
-        } else {
-            updateUI(false);
-        }
-    }
-
-
-
-  //
-
-
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
-        if (opr.isDone()) {
-          //  Log.d(TAG, "Got cached sign-in");
-            GoogleSignInResult result = opr.get();
-            handleGPlusSignInResult(result);
-        } else {
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(GoogleSignInResult googleSignInResult) {
-                    handleGPlusSignInResult(googleSignInResult);
-                }
-            });
-        }
-    }
-
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
-        Log.d(TAG, "onConnectionFailed:" + connectionResult);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int responseCode,
-                                    Intent data) {
-        if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleGPlusSignInResult(result);
-        }else{
-            super.onActivityResult(requestCode, responseCode, data);
-      //      callbackManager.onActivityResult(requestCode, responseCode, data);
-        }
-    }
-
-    public void onClick(View v) {
-        if (v == fb) {
-            loginButton.performClick();
-        }else if(v == google){
-            signIn();
-        }
-    }
-
-    private void updateUI(boolean isSignedIn) {
-        if (isSignedIn) {
-            btnSignIn.setVisibility(View.GONE);
-        } else {
-            btnSignIn.setVisibility(View.VISIBLE);
-        }
-
+//
+//
+//
+//
+//
+//
+//
+//
+////                        Log.i("LoginActivity",
+////                                response.toString());
+////                        try {
+////                            id = object.getString("id");
+////                            try {
+////                                URL profile_pic = new URL(
+////                                        "http://graph.facebook.com/" + id + "/picture?type=large");
+////                                Log.i("profile_pic",
+////                                        profile_pic + "");
+////
+////                            } catch (MalformedURLException e) {
+////                                e.printStackTrace();
+////                            }
+////                            Log.e("UserDate", String.valueOf(object));
+////                        } catch (JSONException e) {
+////                            e.printStackTrace();
+////                        }
+////                    }
+////                    });
+//
+//            Bundle parameters = new Bundle();
+//            parameters.putString("fields","name,email");
+//            request.setParameters(parameters);
+//            request.executeAsync();
+//        }
+//            @Override
+//            public void onCancel() {
+//          //      System.out.println("onCancel");
+//            }
+//            @Override
+//            public void onError(FacebookException exception) {
+//                System.out.println("onError");
+//                Log.v("LoginActivity", exception.getCause().toString());
+//            }
+//        });
+//        initializeControls();
+//        initializeGPlusSettings();
+//    }
+//
+//    private void initializeControls(){
+//        btnSignIn = (SignInButton) findViewById(R.id.btn_sign_in);
+//        btnSignIn.setOnClickListener(this);
+//    }
+//    private void initializeGPlusSettings(){
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestEmail()
+//                .build();
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .enableAutoManage(this, this)
+//                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//                .build();
+//        btnSignIn.setSize(SignInButton.SIZE_STANDARD);
+//        btnSignIn.setScopes(gso.getScopeArray());
+//    }
+//
+//    private void signIn() {
+//        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+//        startActivityForResult(signInIntent, RC_SIGN_IN);
+//    }
+//
+//
+//
+//    private void handleGPlusSignInResult(GoogleSignInResult result) {
+//        Log.d(TAG, "handleSignInResult:" + result.isSuccess());
+//        if (result.isSuccess()) {
+//            GoogleSignInAccount acct = result.getSignInAccount();
+//
+//            Intent i = new Intent(ChoosePanel.this, Home.class);
+//            startActivity(i);
+////            //Fetch values
+//            String m_name = acct.getDisplayName();
+//            String email = acct.getEmail();
+//
+////            String familyName = acct.getFamilyName();
+//            Log.e(TAG, "Name: " + m_name +", email: " + email);
+//            updateUI(true);
+//        } else {
+//            updateUI(false);
+//        }
+//    }
+//
+//
+//
+//  //
+//
+//
+//
+//
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//
+//        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
+//        if (opr.isDone()) {
+//          //  Log.d(TAG, "Got cached sign-in");
+//            GoogleSignInResult result = opr.get();
+//            handleGPlusSignInResult(result);
+//        } else {
+//            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
+//                @Override
+//                public void onResult(GoogleSignInResult googleSignInResult) {
+//                    handleGPlusSignInResult(googleSignInResult);
+//                }
+//            });
+//        }
+//    }
+//
+//
+//    @Override
+//    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+//        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
+//        // be available.
+//        Log.d(TAG, "onConnectionFailed:" + connectionResult);
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int responseCode,
+//                                    Intent data) {
+//        if (requestCode == RC_SIGN_IN) {
+//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+//            handleGPlusSignInResult(result);
+//        }else{
+//            super.onActivityResult(requestCode, responseCode, data);
+//      //      callbackManager.onActivityResult(requestCode, responseCode, data);
+//        }
+//    }
+//
+//    public void onClick(View v) {
+//        if (v == fb) {
+//            loginButton.performClick();
+//        }else if(v == google){
+//            signIn();
+//        }
+//    }
+//
+//    private void updateUI(boolean isSignedIn) {
+//        if (isSignedIn) {
+//            btnSignIn.setVisibility(View.GONE);
+//        } else {
+//            btnSignIn.setVisibility(View.VISIBLE);
+//        }
+//
 
 
 
@@ -311,6 +311,11 @@ startActivity(i);
 //            }
 //        });
 
+
+    }
+
+    @Override
+    public void onClick(View view) {
 
     }
 
